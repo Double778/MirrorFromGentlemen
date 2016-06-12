@@ -23,6 +23,8 @@ public class AppUtils {
     }
 
     /**
+     *
+     * **
      * 获取应用程序名称
      */
     public static String getAppName(Context context) {

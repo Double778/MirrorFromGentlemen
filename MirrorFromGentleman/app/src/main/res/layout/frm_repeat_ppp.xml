@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frm_repeat_ppp_Lt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="100px"-->
+    <!--android:layout_marginTop="148px"-->
+    <!--android:textColor="#FFFFFF"-->
+    <!--android:textSize="28px"-->
+    <!--android:text="全部分类" />-->
+    <!--<TextView-->
+
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="100px"-->
+    <!--android:layout_marginTop="148px"-->
+    <!--android:textColor="#FFFFFF"-->
+    <!--android:textSize="28px"-->
+    <!--android:text="全部分类" />-->
+    <!--<TextView-->
+
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="100px"-->
+    <!--android:layout_marginTop="148px"-->
+    <!--android:textColor="#FFFFFF"-->
+    <!--android:textSize="28px"-->
+    <!--android:text="全部分类" />-->
+    <!--<TextView-->
+
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="100px"-->
+    <!--android:layout_marginTop="148px"-->
+    <!--android:textColor="#FFFFFF"-->
+    <!--android:textSize="28px"-->
+    <!--android:text="全部分类" />-->
+    <!--<TextView-->
+
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="100px"-->
+    <!--android:layout_marginTop="148px"-->
+    <!--android:textColor="#FFFFFF"-->
+    <!--android:textSize="28px"-->
+    <!--android:text="全部分类" />-->
+    <ListView
+        android:id="@+id/ppp_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

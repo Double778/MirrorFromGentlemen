@@ -17,11 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="全部分类"
-            android:textColor="#FFFFFF"
             android:textSize="28px" />
 
         <ImageView
-            android:id="@+id/iv1"
+            android:id="@+id/all_iv"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,11 +40,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="浏览平光镜"
-            android:textColor="#FFFFFF"
             android:textSize="28px" />
 
         <ImageView
-            android:id="@+id/iv2"
+            android:id="@+id/flat_light_iv"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,11 +63,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="浏览太阳镜"
-            android:textColor="#FFFFFF"
             android:textSize="28px" />
 
         <ImageView
-            android:id="@+id/iv3"
+            android:id="@+id/sunglasses_iv"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,11 +86,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="专题分享"
-            android:textColor="#FFFFFF"
             android:textSize="28px" />
 
         <ImageView
-            android:id="@+id/iv4"
+            android:id="@+id/share_iv"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,15 +105,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv5"
+            android:id="@+id/shopping_cart_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的购物车"
-            android:textColor="#FFFFFF"
             android:textSize="28px" />
 
         <ImageView
-            android:id="@+id/iv5"
+            android:id="@+id/shopping_cart_iv"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,11 +128,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv6"
+            android:id="@+id/return_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="返回首页"
-            android:textColor="#FFFFFF"
             android:textSize="28px" />
 
 
@@ -151,11 +145,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv7"
+            android:id="@+id/exit_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="退出"
-            android:textColor="#FFFFFF"
             android:textSize="28px" />
 
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@mipmap/bg">
-<LinearLayout
+<com.zhy.autolayout.AutoLinearLayout
     android:id="@+id/pop_up_Lt"
     android:layout_marginTop="68px"
     android:layout_marginLeft="22px"
@@ -15,7 +15,7 @@ android:background="@mipmap/bg">
 
 
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:gravity="center"
         android:layout_marginBottom="16px"
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@ android:background="@mipmap/bg">
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:background="@mipmap/xiala" />
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -56,7 +56,7 @@ android:background="@mipmap/bg">
         android:layout_height="wrap_content"
         android:text="显示排序为 最新推荐"
         android:textColor="#ffffff"/>
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
 
     <ImageView
         android:layout_width="300px"
@@ -72,7 +72,7 @@ android:background="@mipmap/bg">
     android:layout_gravity="center_vertical"
     android:scrollbars="none">
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -83,7 +83,7 @@ android:background="@mipmap/bg">
             android:layout_height="match_parent" />
 
 
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 </HorizontalScrollView>
 
 <ImageView
@@ -104,4 +104,4 @@ android:background="@mipmap/bg">
     android:layout_marginRight="40px"
     android:text="登录"
     android:textColor="#ffffff" />
-</RelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -194,7 +194,6 @@ public class CommonVideoView extends FrameLayout implements MediaPlayer.OnPrepar
                 }
                 float downX =  event.getRawX();
                 touchLastX = downX;
-                Log.d("FilmDetailActivity", "downX" + downX);
                 this.position = videoView.getCurrentPosition();
                 break;
             case MotionEvent.ACTION_MOVE:

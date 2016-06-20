@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.ui.adapter.pageradapter.MyViewPagerAdapter;
 import com.zhao.mirrorfromgentleman.ui.fragment.RepeatFragment;
-import com.zhao.mirrorfromgentleman.ui.fragment.ShoppingFragment;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
 import com.zhao.mirrorfromgentleman.view.VerticalViewPager;

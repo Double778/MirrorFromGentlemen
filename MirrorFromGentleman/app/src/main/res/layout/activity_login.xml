@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46px"
+        android:layout_marginTop="30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="賬號登錄"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ImageView
+        android:id="@+id/login_exit_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="46px"
+        android:layout_marginTop="30px"
+        android:background="@mipmap/shut_down" />
+
+    <ImageView
+        android:id="@+id/the_titles_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="84px"
+        android:background="@mipmap/zhanghaohengtiao" />
+
+    <TextView
+        android:id="@+id/phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/the_titles_iv"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="40px"
+        android:text="手機號"
+        android:textSize="24px" />
+
+    <EditText
+        android:id="@+id/phone_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone_tv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/et_shape"
+        android:paddingBottom="20px"
+        android:paddingTop="20px"
+        android:textSize="30px"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/password_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone_et"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="30px"
+        android:text="密碼"
+        android:textSize="24px" />
+
+    <EditText
+         android:inputType="textPassword"
+        android:id="@+id/password_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password_tv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/et_shape"
+        android:paddingBottom="20px"
+        android:paddingTop="20px"
+        android:textSize="30px" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_below="@id/password_et"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="90px"
+        android:background="#D9D9D9"
+        android:text="登錄"
+        android:textSize="30px" />
+
+    <Button
+        android:id="@+id/create_account_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_below="@id/login_btn"
+        android:layout_margin="30px"
+        android:background="#f23f46"
+        android:text="創建賬號"
+        android:textSize="30px" />
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/iconaalayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50px">
+
+        <ImageView
+            android:id="@+id/weibo_icon_Iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="80px"
+            android:background="@mipmap/weiboicon" />
+
+        <ImageView
+            android:id="@+id/weixin_icon_Iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/weixinicon" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/iconaalayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50px"
+        android:text="使用社交賬號"
+        android:textSize="30px" />
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

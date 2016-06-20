@@ -4,6 +4,7 @@ package com.zhao.mirrorfromgentleman.ui.fragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -14,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -24,15 +24,17 @@ import android.widget.Toast;
 
 import com.squareup.okhttp.Request;
 import com.zhao.mirrorfromgentleman.R;
+import com.zhao.mirrorfromgentleman.model.bean.Bean;
 import com.zhao.mirrorfromgentleman.model.bean.MyData;
 import com.zhao.mirrorfromgentleman.model.bean.TestBean;
 import com.zhao.mirrorfromgentleman.model.net.OkHttpClientManager;
+import com.zhao.mirrorfromgentleman.ui.activity.LoginActivity;
 import com.zhao.mirrorfromgentleman.ui.adapter.lvadapter.RepeatLvAdapter;
 import com.zhao.mirrorfromgentleman.ui.adapter.rvadapter.MyRvOnclickListener;
 import com.zhao.mirrorfromgentleman.ui.adapter.rvadapter.RepeatRvadapter;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
-import com.zhao.mirrorfromgentleman.ui.utils.cache.VolleyImageLoaderTool;
+import com.zhao.mirrorfromgentleman.ui.utils.usedtools.SPUtils;
 import com.zhao.mirrorfromgentleman.view.SysApplication;
 
 import java.util.ArrayList;
@@ -69,7 +71,7 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
     private PopupWindow popupWindow;
     private List<MyData> mydata;
 
-    private TextView allTv, flatLightTv, sunglassesTv, shareTv,  shoppingCartTv, returnTv, exitTv;
+    private TextView allTv, flatLightTv, sunglassesTv, shareTv, shoppingCartTv, returnTv, exitTv;
 
     private ImageView allIv, flatLightIv, sunglassesIv, shareIv, shoppingCartIv;
 
@@ -79,6 +81,10 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
 
     //定义这个构造方法 在Aty中将值set过来
     private String titles;
+
+    private String shoppingTv;
+
+    private Bean bean;
 
     public RepeatFragment(String titles) {
         this.titles = titles;
@@ -105,56 +111,82 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
         //设置这个文字的改变
         titlesTv.setText(titles);
         //以titles来判断 如果是我的购物车 将Rv隐藏
-        if (titles.equals("我的购物车")){
-            recyclerView.setVisibility(View.INVISIBLE);
+        if (titles.equals("我的购物车")) {
             iv.setVisibility(View.VISIBLE);
-
+            recyclerView.setVisibility(View.INVISIBLE);
         }
-        //这个ppp的调取
+
+
         initPupop();
 
+        shoppingTv = (String) SPUtils.get(context, "TextChange", "");
+        if (shoppingTv.equals("")) {
+            loginTv.setText("登錄");
+        } else {
+            loginTv.setText(shoppingTv);
+        }
+        if (loginTv.getText().toString().equals("登錄")) {
 
+            loginTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+        } else if (loginTv.getText().toString().equals("我的購物車")) {
+            loginTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    controlViewpager.control(4);
+                }
+            });
+        }
 
         Map<String, String> params = new HashMap<>();
         params.put("token", "0");
         params.put("device_type", "2");
-        OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/products/goods_list", new OkHttpClientManager.ResultCallback<TestBean>() {
+        OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/products/goods_list", new OkHttpClientManager.ResultCallback<Bean>() {
             @Override
             public void onError(Request request, Exception e) {
 
             }
 
             @Override
-            public void onResponse(TestBean response) {
+            public void onResponse(Bean response) {
+                bean=response;
+//                rvAdapter.setBean(response);
 //                VolleyImageLoaderTool.showImage(imageView, response.getData().getList().get(1).getDesign_des().get(0).getImg());
-                Log.d("RepeatFragment", "response.getData().getList().size():" + response.getData().getList().size());
+                Log.d("RepeatFragment", "response.getData().getList().size():" + response.getData().getList().get(0).getGoods_price());
             }
 
 
-        },params);
+        }, params);
 
         List<String> data = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            data.add(i+" ");
+            data.add(i + " ");
         }
 
-        recyclerView.setLayoutManager( new StaggeredGridLayoutManager(data.size(),StaggeredGridLayoutManager.VERTICAL));
-        rvAdapter =new RepeatRvadapter(context);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(data.size(), StaggeredGridLayoutManager.VERTICAL));
+        rvAdapter = new RepeatRvadapter(context);
+
         rvAdapter.setData(data);
         recyclerView.setAdapter(rvAdapter);
-        rvAdapter.setMyRvOnclickListener(new MyRvOnclickListener() {
-            @Override
-            public void myOnclick(int id, int pos) {
-
-            }
-        });
+//        rvAdapter.setMyRvOnclickListener(new MyRvOnclickListener() {
+//            @Override
+//            public void myOnclick(int id, int pos) {
+//
+//            }
+//        });
     }
 
 
     //通过点击事件控制这些东西显示和不显示
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
+
             case R.id.pop_up_Lt:
                 popupWindow.showAsDropDown(pop_up);
                 pop_up.setVisibility(View.INVISIBLE);
@@ -178,7 +210,12 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.shopping_cart_tv:
                 controlViewpager.control(4);
+
                 popupWindow.dismiss();
+                iv.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.INVISIBLE);
+
+
                 break;
             case R.id.return_tv:
                 controlViewpager.control(0);
@@ -193,9 +230,8 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
     }
 
 
-
     //自定义的接口 来控制Viewpager的位置
-    public interface ControlViewpager{
+    public interface ControlViewpager {
         void control(int pos);
     }
 
@@ -257,8 +293,7 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
             case "我的购物车":
                 shoppingCartTv.setTextColor(getResources().getColor(R.color.colorwhirt));
                 shoppingCartIv.setVisibility(View.VISIBLE);
-                recyclerView.setVisibility(View.INVISIBLE);
-                iv.setVisibility(View.VISIBLE);
+
                 break;
         }
 
@@ -278,15 +313,13 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
     }
 
 
-
-
     public void clickQuitDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage("你真的忍心退出吗?");
 
 //	        builder.setTitle("提示");
-        builder.setPositiveButton("确认",new android.content.DialogInterface.OnClickListener() {
+        builder.setPositiveButton("确认", new android.content.DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -295,7 +328,7 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
                 SysApplication.getInstance().exit();
             }
         });
-        builder.setNegativeButton("取消",new android.content.DialogInterface.OnClickListener() {
+        builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(), "你的选择是明智的", Toast.LENGTH_SHORT).show();
@@ -316,7 +349,33 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
         return false;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        shoppingTv = (String) SPUtils.get(context, "TextChange", "");
+        if (shoppingTv.equals("")) {
+            loginTv.setText("登錄");
+        } else {
+            loginTv.setText(shoppingTv);
+        }
 
+        if (loginTv.getText().toString().equals("登錄")) {
 
+            loginTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+        } else if (loginTv.getText().toString().equals("我的購物車")) {
+            loginTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    controlViewpager.control(4);
+                }
+            });
+        }
+    }
 }

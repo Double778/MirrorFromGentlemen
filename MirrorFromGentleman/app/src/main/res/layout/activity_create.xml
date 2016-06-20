@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46px"
+        android:layout_marginTop="30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="創建賬號"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ImageView
+        android:id="@+id/create_exit_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="46px"
+        android:layout_marginTop="30px"
+        android:background="@mipmap/shut_down" />
+
+    <ImageView
+        android:id="@+id/the_titles_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="84px"
+        android:background="@mipmap/zhanghaohengtiao" />
+
+    <TextView
+        android:id="@+id/create_phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/the_titles_iv"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="40px"
+        android:text="手機號"
+        android:textSize="24px" />
+
+    <EditText
+        android:id="@+id/create_phone_et"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_phone_tv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/et_shape"
+        android:paddingBottom="20px"
+        android:paddingTop="20px"
+        android:textSize="30px" />
+
+    <TextView
+
+        android:id="@+id/create_password_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_phone_et"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="30px"
+        android:text="驗證碼"
+        android:textSize="24px" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/create_lineartlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_password_tv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px">
+
+        <EditText
+            android:inputType="number"
+            android:id="@+id/create_validation_et"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:background="@drawable/et_shape"
+            android:paddingBottom="20px"
+            android:paddingTop="20px"
+            android:textSize="30px" />
+        <TextView
+            android:id="@+id/send_tv"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="26px"
+            android:background="#f23f46"
+            android:text="發送驗證碼"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+    <TextView
+        android:id="@+id/create_new_password_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_lineartlayout"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="30px"
+        android:text="設置密碼"
+        android:textSize="24px" />
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/create_new_password_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/create_new_password_tv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/et_shape"
+        android:paddingBottom="20px"
+        android:paddingTop="20px"
+        android:textSize="30px" />
+    <Button
+        android:textSize="30px"
+        android:background="#f23f46"
+        android:id="@+id/create_new_account_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_below="@id/create_new_password_et"
+        android:layout_marginTop="50px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:text="創建賬號" />
+</com.zhy.autolayout.AutoRelativeLayout>

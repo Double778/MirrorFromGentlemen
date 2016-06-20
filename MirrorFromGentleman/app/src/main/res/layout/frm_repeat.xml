@@ -29,7 +29,7 @@
                 android:layout_weight="5"
                 android:text="浏览所有分类"
                 android:textColor="#ffffff"
-                android:textSize="24px" />
+                android:textSize="26px" />
 
             <ImageView
                 android:layout_width="0dp"
@@ -107,5 +107,5 @@
         android:layout_marginRight="40px"
         android:text="登录"
         android:textColor="#ffffff"
-        android:textSize="36px" />
+        android:textSize="30px" />
 </com.zhy.autolayout.AutoRelativeLayout>

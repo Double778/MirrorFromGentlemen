@@ -1,0 +1,120 @@
+package com.zhao.mirrorfromgentleman.ui.activity;
+
+import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.squareup.okhttp.Request;
+import com.zhao.mirrorfromgentleman.R;
+import com.zhao.mirrorfromgentleman.model.bean.RegisteredBean;
+import com.zhao.mirrorfromgentleman.model.net.OkHttpClientManager;
+import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
+import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
+import com.zhao.mirrorfromgentleman.ui.utils.usedtools.SPUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by 旭哥哥 on 16/6/17.
+ */
+@BindContent(R.layout.activity_login)
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
+    @BindView(R.id.login_exit_iv)
+    ImageView longExitIv;
+    @BindView(R.id.create_account_btn)
+    Button createBtn;
+    @BindView(R.id.phone_et)
+    EditText phoneEt;
+    @BindView(R.id.password_et)
+    EditText passwordEt;
+    @BindView(R.id.login_btn)
+    Button loginBtn;
+
+
+    @Override
+    protected void setListener() {
+
+    }
+
+    @Override
+    public void initData() {
+        longExitIv.setOnClickListener(this);
+        createBtn.setOnClickListener(this);
+        loginBtn.setOnClickListener(this);
+
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (phoneEt.length() > 0 && passwordEt.length() > 0) {
+                    loginBtn.setBackgroundColor(getResources().getColor(R.color.colorclicklogin));
+                } else {
+                    loginBtn.setBackgroundColor(getResources().getColor(R.color.colorlogin));
+                }
+
+            }
+        };
+        phoneEt.addTextChangedListener(textWatcher);
+        passwordEt.addTextChangedListener(textWatcher);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Map<String, String> params = new HashMap<>();
+        switch (v.getId()) {
+            case R.id.login_exit_iv:
+                finish();
+                break;
+            case R.id.create_account_btn:
+                Intent intent = new Intent(LoginActivity.this, CreateActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.login_btn:
+                params.put("phone_number", phoneEt.getText().toString());
+                params.put("password", passwordEt.getText().toString());
+
+                OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/user/login", new OkHttpClientManager.ResultCallback<RegisteredBean>() {
+                    @Override
+                    public void onError(Request request, Exception e) {
+                        Toast.makeText(LoginActivity.this, "發送失敗,請開啟網絡", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(RegisteredBean response) {
+                        String a = "我的購物車";
+                        if (response.getResult().toString().equals("1")) {
+                            Toast.makeText(LoginActivity.this, "登錄成功", Toast.LENGTH_SHORT).show();
+                            SPUtils.put(LoginActivity.this,"TextChange",a);
+                            finish();
+
+                        } else {
+                            Toast.makeText(LoginActivity.this, response.getMsg().toString(), Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+
+                }, params);
+                break;
+        }
+    }
+
+
+}

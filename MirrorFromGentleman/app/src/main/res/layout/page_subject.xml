@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/page_subject_auto_rl"
+        android:layout_width="640px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="63px"
+        android:background="@mipmap/ic_subject_text_background"
+        android:layout_marginBottom="130px">
+
+        <TextView
+            android:id="@+id/page_subject_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20px" />
+        <TextView
+            android:id="@+id/page_subject_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22px"
+            android:layout_alignLeft="@id/page_subject_title_tv"
+            android:layout_below="@id/page_subject_title_tv"
+            android:textColor="@android:color/white"
+            android:textSize="34px" />
+        <TextView
+            android:id="@+id/page_subject_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22px"
+            android:layout_alignLeft="@id/page_subject_title_tv"
+            android:layout_below="@id/page_subject_name_tv"
+            android:textColor="@android:color/white"
+            android:textSize="20px" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

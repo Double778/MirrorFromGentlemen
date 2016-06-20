@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="590px"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:layout_centerInParent="true"
+        android:padding="28px">
+        <View
+            android:id="@+id/item_details_top_v_1"
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:background="@mipmap/biaoti" />
+        <TextView
+            android:id="@+id/item_details_top_name_tv"
+            style="@style/DetailsActivityTextViewStyle"
+            android:textSize="60px"
+            android:layout_marginTop="30px"
+            android:layout_below="@id/item_details_top_v_1"
+            android:text="@string/test"/>
+        <View
+            android:id="@+id/item_details_top_v_2"
+            android:layout_width="match_parent"
+            android:layout_height="4px"
+            android:layout_marginTop="34px"
+            android:layout_below="@id/item_details_top_name_tv"
+            android:background="@mipmap/biaoti" />
+        <TextView
+            android:id="@+id/item_details_top_content_tv"
+            style="@style/DetailsActivityTextViewStyle"
+            android:textSize="26px"
+            android:layout_marginTop="30px"
+            android:layout_marginBottom="16px"
+            android:layout_below="@id/item_details_top_v_2"
+            android:text="@string/test"/>
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

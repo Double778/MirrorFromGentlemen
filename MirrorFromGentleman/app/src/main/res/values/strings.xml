@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MirrorFromGentleman</string>
+    <string name="test">测试</string>
+    <string name="detail">滑动浏览详情</string>
 </resources>

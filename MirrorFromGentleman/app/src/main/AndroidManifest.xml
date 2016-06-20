@@ -13,14 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.adornimage.AdornImageDetailsActivity" />
-        >
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.DetailActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.adornimage.AdornImageDetailsActivity" />
+
 
         <meta-data
             android:name="design_width"

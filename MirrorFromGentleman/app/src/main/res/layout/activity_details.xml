@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/activity_details_background_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/aaaabbbb"/>
+
+    <ListView
+        android:id="@+id/activity_details_bottom_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:divider="@null"/>
+    <com.zhao.mirrorfromgentleman.view.NoScrollScrollView
+        android:id="@+id/activity_details_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.zhao.mirrorfromgentleman.view.NoScrollListView
+            android:id="@+id/activity_details_top_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:scrollbars="none"/>
+    </com.zhao.mirrorfromgentleman.view.NoScrollScrollView>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

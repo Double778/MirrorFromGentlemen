@@ -25,7 +25,7 @@ public class VolleyImageLoaderTool {
     }
 
     public static void showImage(ImageView imageView, String url) {
-        ImageLoader.ImageListener listener = getInstance().getImageLoader().getImageListener(imageView, R.mipmap.ic_launcher, R.mipmap.ic_launcher);
+        ImageLoader.ImageListener listener = getInstance().getImageLoader().getImageListener(imageView, 0, 0);
         getInstance().getImageLoader().get(url, listener);
     }
 

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,10 +21,16 @@ import com.zhao.mirrorfromgentleman.ui.utils.usedtools.SPUtils;
 import java.util.HashMap;
 import java.util.Map;
 
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.tencent.qq.QQ;
+
 /**
  * Created by 旭哥哥 on 16/6/17.
  */
-    @BindContent(R.layout.activity_login)
+@BindContent(R.layout.activity_login)
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.login_exit_iv)
     ImageView longExitIv;
@@ -37,6 +42,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     EditText passwordEt;
     @BindView(R.id.login_btn)
     Button loginBtn;
+    @BindView(R.id.weibo_icon_Iv)
+    ImageView weiboIv;
+    @BindView(R.id.weixin_icon_Iv)
+    ImageView QQIv;
 
 
     @Override
@@ -46,6 +55,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public void initData() {
+
+        ShareSDK.initSDK(this);
         longExitIv.setOnClickListener(this);
         createBtn.setOnClickListener(this);
         loginBtn.setOnClickListener(this);
@@ -73,6 +84,54 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         };
         phoneEt.addTextChangedListener(textWatcher);
         passwordEt.addTextChangedListener(textWatcher);
+        weiboIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Platform weibo = ShareSDK.getPlatform(SinaWeibo.NAME);
+
+                weibo.setPlatformActionListener(new PlatformActionListener() {
+                    @Override
+                    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+
+                    }
+
+                    @Override
+                    public void onError(Platform platform, int i, Throwable throwable) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Platform platform, int i) {
+
+                    }
+                });
+                weibo.authorize();
+            }
+        });
+        QQIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Platform QQ = ShareSDK.getPlatform(cn.sharesdk.tencent.qq.QQ.NAME);
+                QQ.setPlatformActionListener(new PlatformActionListener() {
+                    @Override
+                    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+
+                    }
+
+                    @Override
+                    public void onError(Platform platform, int i, Throwable throwable) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Platform platform, int i) {
+
+                    }
+                });
+                QQ.authorize();
+            }
+        });
     }
 
     @Override

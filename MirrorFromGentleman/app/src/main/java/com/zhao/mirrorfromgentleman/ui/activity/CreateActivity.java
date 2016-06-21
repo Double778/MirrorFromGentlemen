@@ -1,6 +1,7 @@
 package com.zhao.mirrorfromgentleman.ui.activity;
 
 import android.os.CountDownTimer;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -64,38 +65,42 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.send_tv:
+                boolean phoneNumber = isMobileNO(createPhoneEt.getText().toString());
+                if (phoneNumber == true) {
+                    params.put("phone_number", createPhoneEt.getText().toString());
 
-                params.put("phone_number", createPhoneEt.getText().toString());
+                    OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/user/send_code", new OkHttpClientManager.ResultCallback<String>() {
+                        @Override
+                        public void onError(Request request, Exception e) {
+                            Toast.makeText(CreateActivity.this, "發送失敗,請開啟網絡", Toast.LENGTH_SHORT).show();
+                        }
 
-                OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/user/send_code", new OkHttpClientManager.ResultCallback<String>() {
-                    @Override
-                    public void onError(Request request, Exception e) {
-                        Toast.makeText(CreateActivity.this, "發送失敗,請開啟網絡", Toast.LENGTH_SHORT).show();
-                    }
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(CreateActivity.this, "验证码发送成功", Toast.LENGTH_SHORT).show();
 
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(CreateActivity.this, "验证码发送成功", Toast.LENGTH_SHORT).show();
+                            timer = new CountDownTimer(59000, 1000) {
+                                @Override
+                                public void onTick(long millisUntilFinished) {
+                                    sendTv.setText(millisUntilFinished / 1000 + "s後重新發送");
+                                    sendTv.setClickable(false);
 
-                        timer = new CountDownTimer(59000, 1000) {
-                            @Override
-                            public void onTick(long millisUntilFinished) {
-                                sendTv.setText(millisUntilFinished / 1000 + "s後重新發送");
-                                sendTv.setClickable(false);
+                                }
 
-                            }
+                                @Override
+                                public void onFinish() {
+                                    sendTv.setText("發送驗證碼");
+                                    sendTv.setClickable(true);
+                                    timer.cancel();
 
-                            @Override
-                            public void onFinish() {
-                                sendTv.setText("發送驗證碼");
-                                sendTv.setClickable(true);
-                                timer.cancel();
+                                }
+                            }.start();
+                        }
 
-                            }
-                        }.start();
-                    }
-
-                }, params);
+                    }, params);
+                }else {
+                    Toast.makeText(this, "您輸入的電話號碼不合法", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.create_new_account_btn:
@@ -123,5 +128,19 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                 },param);
                 break;
         }
+    }
+    /**
+     * 验证手机格式
+     */
+    public static boolean isMobileNO(String mobiles) {
+        /*
+        移动：134、135、136、137、138、139、150、151、157(TD)、158、159、187、188
+        联通：130、131、132、152、155、156、185、186
+        电信：133、153、180、189、（1349卫通）
+        总结起来就是第一位必定为1，第二位必定为3或5或8，其他位置的可以为0-9
+        */
+        String telRegex = "[1][358]\\d{9}";//"[1]"代表第1位为数字1，"[358]"代表第二位可以为3、5、8中的一个，"\\d{9}"代表后面是可以是0～9的数字，有9位。
+        if (TextUtils.isEmpty(mobiles)) return false;
+        else return mobiles.matches(telRegex);
     }
 }

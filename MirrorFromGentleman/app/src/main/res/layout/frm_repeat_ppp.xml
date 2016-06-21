@@ -16,7 +16,8 @@
             android:id="@+id/all_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="全部分类"
+            android:text="全部分類"
+            android:textColor="#5e6f87"
             android:textSize="28px" />
 
         <ImageView
@@ -39,7 +40,8 @@
             android:id="@+id/flat_light_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="浏览平光镜"
+            android:text="瀏覽平光鏡"
+            android:textColor="#5e6f87"
             android:textSize="28px" />
 
         <ImageView
@@ -62,8 +64,10 @@
             android:id="@+id/sunglasses_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="浏览太阳镜"
-            android:textSize="28px" />
+            android:text="瀏覽太陽鏡"
+
+            android:textSize="28px"
+            android:textColor="#5e6f87"/>
 
         <ImageView
             android:id="@+id/sunglasses_iv"
@@ -85,7 +89,8 @@
             android:id="@+id/share_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="专题分享"
+            android:text="專題分享"
+            android:textColor="#5e6f87"
             android:textSize="28px" />
 
         <ImageView
@@ -108,7 +113,8 @@
             android:id="@+id/shopping_cart_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="我的购物车"
+            android:text="我的購物車"
+            android:textColor="#5e6f87"
             android:textSize="28px" />
 
         <ImageView
@@ -131,7 +137,8 @@
             android:id="@+id/return_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="返回首页"
+            android:text="返回首頁"
+            android:textColor="#5e6f87"
             android:textSize="28px" />
 
 
@@ -148,7 +155,8 @@
             android:id="@+id/exit_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="退出"
+            android:text="退出程序"
+            android:textColor="#5e6f87"
             android:textSize="28px" />
 
 

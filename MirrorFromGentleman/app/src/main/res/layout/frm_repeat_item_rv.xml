@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/Rv_tv"
-        android:layout_margin="22px"
+
+    <ImageView
+        android:id="@+id/frm_repeat__item_iv"
         android:layout_width="540px"
-        android:layout_height="834px"
-        android:text="哈哈哈哈"
-        android:background="@mipmap/aaaabbbb"/>
-</com.zhy.autolayout.AutoLinearLayout>
+        android:layout_height="595px"
+        android:layout_marginLeft="22px"
+        android:layout_marginRight="22px"
+        android:scaleType="fitXY"
+        />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="540px"
+        android:layout_height="238px"
+        android:layout_below="@id/frm_repeat__item_iv"
+        android:layout_marginLeft="22px"
+        android:layout_marginRight="22px"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/repeat_item_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32px"
+            android:layout_marginTop="50px"
+            android:text="SEE CONCEPT"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/repeat_origin_item_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/repeat_item_name_tv"
+            android:layout_marginLeft="32px"
+            android:layout_marginTop="16px"
+            android:text="法国巴黎"
+            android:textSize="24px" />
+
+        <TextView
+            android:id="@+id/Rv_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="32px"
+            android:layout_marginTop="50px"
+            android:text="¥450"
+            android:textSize="30px" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/repeat_origin_item_tv"
+            android:layout_marginLeft="32px"
+            android:layout_marginRight="32px"
+            android:layout_marginTop="30px"
+            android:background="@mipmap/zhanghaohengtiao"
+            android:id="@+id/repeat_line_item_iv"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30px"
+            android:layout_marginTop="16px"
+            android:layout_below="@id/repeat_line_item_iv"
+            android:layout_marginLeft="32px"
+            android:text="草莓紅色圓框眼鏡"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

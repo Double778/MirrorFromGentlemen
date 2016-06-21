@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by 华哥哥 on 16/6/17.
+ * 二级界面(专题页)
  */
 @BindContent(R.layout.activity_subject)
 public class SubjectActivity extends BaseActivity implements View.OnClickListener {

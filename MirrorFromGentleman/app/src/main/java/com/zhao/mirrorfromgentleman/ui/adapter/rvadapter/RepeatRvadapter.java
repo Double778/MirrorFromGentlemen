@@ -54,7 +54,7 @@ public class RepeatRvadapter extends RecyclerView.Adapter<RepeatRvadapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.textView.setText(data.get(position));
         Log.d("RepeatRvadapter", data.get(position));
 //        holder.textView.setText(bean.get(position).getData().getList().get(position).getGoods_price());
@@ -63,7 +63,8 @@ public class RepeatRvadapter extends RecyclerView.Adapter<RepeatRvadapter.MyView
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "点击了", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "点击了", Toast.LENGTH_SHORT).show();
+                    myRvOnclickListener.myOnclick(0, position);
                 }
             });
         }

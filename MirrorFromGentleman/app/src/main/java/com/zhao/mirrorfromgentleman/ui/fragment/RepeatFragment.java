@@ -28,6 +28,7 @@ import com.zhao.mirrorfromgentleman.model.bean.Bean;
 import com.zhao.mirrorfromgentleman.model.bean.MyData;
 import com.zhao.mirrorfromgentleman.model.bean.TestBean;
 import com.zhao.mirrorfromgentleman.model.net.OkHttpClientManager;
+import com.zhao.mirrorfromgentleman.ui.activity.DetailActivity;
 import com.zhao.mirrorfromgentleman.ui.activity.LoginActivity;
 import com.zhao.mirrorfromgentleman.ui.adapter.lvadapter.RepeatLvAdapter;
 import com.zhao.mirrorfromgentleman.ui.adapter.rvadapter.MyRvOnclickListener;
@@ -173,12 +174,12 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
 
         rvAdapter.setData(data);
         recyclerView.setAdapter(rvAdapter);
-//        rvAdapter.setMyRvOnclickListener(new MyRvOnclickListener() {
-//            @Override
-//            public void myOnclick(int id, int pos) {
-//
-//            }
-//        });
+        rvAdapter.setMyRvOnclickListener(new MyRvOnclickListener() {
+            @Override
+            public void myOnclick(int id, int pos) {
+                startActivity(new Intent(context, DetailActivity.class));
+            }
+        });
     }
 
 

@@ -7,25 +7,56 @@
         android:id="@+id/activity_details_background_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/aaaabbbb"/>
+        android:background="@mipmap/aaaabbbb" />
 
     <ListView
         android:id="@+id/activity_details_bottom_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:divider="@null"/>
-    <com.zhao.mirrorfromgentleman.view.NoScrollScrollView
-        android:id="@+id/activity_details_sv"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <com.zhao.mirrorfromgentleman.view.NoScrollListView
+        android:id="@+id/activity_details_top_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.zhao.mirrorfromgentleman.view.NoScrollListView
-            android:id="@+id/activity_details_top_lv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            android:scrollbars="none"/>
-    </com.zhao.mirrorfromgentleman.view.NoScrollScrollView>
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/activity_details_bottom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <ImageView
+            android:id="@+id/activity_details_back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/details_aty_back"
+            android:layout_marginLeft="20px"
+            android:layout_centerVertical="true"/>
+        <Button
+            android:id="@+id/activity_details_wear_images_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/details_aty_wear_imgs"
+            android:text="佩戴图集"
+            android:layout_marginLeft="62px"
+            android:textColor="@android:color/white"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/activity_details_back_iv"/>
+        <ImageView
+            android:id="@+id/activity_details_bug_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40px"
+            android:src="@mipmap/details_aty_buy"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
 
 
 </com.zhy.autolayout.AutoRelativeLayout>

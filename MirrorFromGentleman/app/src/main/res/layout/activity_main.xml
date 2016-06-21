@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@mipmap/bg"
     tools:context=".ui.activity.MainActivity">
-
 
 
     <com.zhao.mirrorfromgentleman.view.VerticalViewPager
         android:id="@+id/main_vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48px"
+        android:layout_marginLeft="40px"
+        android:background="@mipmap/mirror" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/login_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="48px"
+        android:layout_marginRight="40px"
+        android:text="登录"
+        android:textColor="#ffffff"
+        android:textSize="30px" />
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,6 +1,7 @@
 package com.zhao.mirrorfromgentleman.ui.activity;
 
 import android.animation.ObjectAnimator;
+import android.app.Application;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,7 +53,7 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
     public void initData() {
 
         // 一开始就利用属性动画将底部功能栏滑出屏幕
-        showObjectAnimator(0, -768, 0);
+        showObjectAnimator(0, -ScreenUtils.getScreenHeight(MyApplication.getContext()), 0);
 
 
         // 底层ListView头布局
@@ -107,12 +108,12 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
 
         if (firstVisibleItem ==0) {
             // 当第一个可见的Item为0时, 将底部功能栏滑出屏幕
-            showObjectAnimator(0, -768, 0);
+            showObjectAnimator(0, -ScreenUtils.getScreenHeight(MyApplication.getContext()), 0);
 
         } else {
             // 当底部功能栏的X位置为-768 将其滑入屏幕
-            if (bottomRl.getX() == -768) {
-                showObjectAnimator(-768, 0, 300);
+            if (bottomRl.getX() == -ScreenUtils.getScreenHeight(MyApplication.getContext())) {
+                showObjectAnimator(-ScreenUtils.getScreenHeight(MyApplication.getContext()), 0, 300);
             }
 
         }

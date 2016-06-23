@@ -25,6 +25,9 @@ import com.zhao.mirrorfromgentleman.view.NoScrollListView;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
 /**
  * Created by 华哥哥 on 16/6/17.
  * 二级界面(商品详情)
@@ -48,6 +51,7 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
     private Button wearImagesBtn;
     @BindView(R.id.activity_details_bug_iv)
     private ImageView bugIv;
+    private ImageView shareIv;
 
 
     @Override
@@ -61,6 +65,13 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
         View view = LayoutInflater.from(this).inflate(R.layout.head_view_activity_detail, null);
         // 底层ListView头布局中全透明部分
         AutoFrameLayout frameLayout = (AutoFrameLayout) view.findViewById(R.id.head_view_activity_detail_null_fl);
+        shareIv = (ImageView) view.findViewById(R.id.head_view_activity_detail_share_iv);
+        shareIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showShare();
+            }
+        });
         frameLayout.setMinimumHeight(ScreenUtils.getScreenHeight(MyApplication.getContext()));
 
         // 表层ListView头布局 只为了把其挤出屏幕
@@ -76,6 +87,35 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
         noScrollListView.setAdapter(new TopAdapter(this));
 
     }
+
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+
+        oks.disableSSOWhenAuthorize();
+
+
+        oks.setTitleUrl("http://sharesdk.cn");
+
+        oks.setText("我是分享文本");
+
+        oks.setUrl("http://sharesdk.cn");
+
+        oks.setComment("我是测试评论文本");
+
+        oks.setSite(getString(R.string.app_name));
+
+        oks.setSiteUrl("http://sharesdk.cn");
+
+        oks.setTitle("美若");
+
+        oks.setTitleUrl("http://www.liwushuo.com/items/");
+        oks.setText("美若");
+//        oks.setImageUrl("");
+
+        oks.show(this);
+    }
+
 
     @Override
     protected void setListener() {

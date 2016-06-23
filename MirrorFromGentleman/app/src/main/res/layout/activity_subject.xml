@@ -14,6 +14,12 @@
         android:alpha="0.4"
         android:background="@android:color/black" />
 
+    <com.zhao.mirrorfromgentleman.view.VerticalViewPager
+        android:id="@+id/activity_subject_text_introduce_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
     <ImageView
         android:id="@+id/activity_subject_close_iv"
         android:layout_width="wrap_content"
@@ -30,11 +36,5 @@
         android:layout_alignParentRight="true"
         android:layout_margin="40px"
         android:src="@mipmap/ic_subject_share" />
-
-    <com.zhao.mirrorfromgentleman.view.VerticalViewPager
-        android:id="@+id/activity_subject_text_introduce_vp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 
 </com.zhy.autolayout.AutoRelativeLayout>

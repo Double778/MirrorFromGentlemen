@@ -25,6 +25,7 @@ import com.zhao.mirrorfromgentleman.model.bean.Bean;
 import com.zhao.mirrorfromgentleman.model.bean.MyData;
 import com.zhao.mirrorfromgentleman.model.net.OkHttpClientManager;
 import com.zhao.mirrorfromgentleman.ui.activity.DetailActivity;
+import com.zhao.mirrorfromgentleman.ui.activity.SubjectActivity;
 import com.zhao.mirrorfromgentleman.ui.adapter.rvadapter.AllRvadapter;
 import com.zhao.mirrorfromgentleman.ui.adapter.rvadapter.ProjectRvadapter;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
@@ -184,7 +185,7 @@ public class ProjectFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     public void myOnclick() {
-        startActivity(new Intent(context, DetailActivity.class));
+        startActivity(new Intent(context, SubjectActivity.class));
     }
 
 

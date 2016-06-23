@@ -3,6 +3,7 @@ package com.zhao.mirrorfromgentleman.ui.activity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhao.mirrorfromgentleman.R;
@@ -14,6 +15,9 @@ import com.zhao.mirrorfromgentleman.view.VerticalViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
  * Created by 华哥哥 on 16/6/17.
@@ -30,6 +34,7 @@ public class SubjectActivity extends BaseActivity implements View.OnClickListene
     private ImageView closeIv;
     @BindView(R.id.activity_subject_share_iv)
     private ImageView shareIv;
+
 
     @Override
     public void initData() {
@@ -78,9 +83,37 @@ public class SubjectActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.activity_subject_share_iv:
                 // TODO 分享
-
+                showShare();
                 break;
         }
 
+    }
+
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+
+        oks.disableSSOWhenAuthorize();
+
+
+        oks.setTitleUrl("http://sharesdk.cn");
+
+        oks.setText("我是分享文本");
+
+        oks.setUrl("http://sharesdk.cn");
+
+        oks.setComment("我是测试评论文本");
+
+        oks.setSite(getString(R.string.app_name));
+
+        oks.setSiteUrl("http://sharesdk.cn");
+
+        oks.setTitle("美若");
+
+        oks.setTitleUrl("http://www.liwushuo.com/items/");
+        oks.setText("美若");
+//        oks.setImageUrl("");
+
+        oks.show(this);
     }
 }

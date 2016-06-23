@@ -1,6 +1,7 @@
 package com.zhao.mirrorfromgentleman.ui.activity;
 
 import android.content.Intent;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mob.tools.utils.UIHandler;
 import com.squareup.okhttp.Request;
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.model.bean.RegisteredBean;

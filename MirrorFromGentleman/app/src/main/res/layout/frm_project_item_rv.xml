@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/frm_project_item_iv"
+        android:layout_width="540px"
+        android:layout_height="704px"
+        android:layout_marginLeft="22px"
+        android:layout_marginRight="22px"
+        android:scaleType="fitXY"
+        />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="540px"
+        android:layout_height="128px"
+        android:layout_below="@id/frm_project_item_iv"
+        android:layout_marginLeft="22px"
+        android:layout_marginRight="22px"
+        android:background="#ffffff">
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="32px"
+            android:layout_marginRight="32px"
+            android:layout_marginTop="34px"
+            android:background="@mipmap/zhanghaohengtiao"
+            android:id="@+id/repeat_line_item_iv"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30px"
+            android:layout_marginTop="16px"
+            android:layout_below="@id/repeat_line_item_iv"
+            android:layout_marginLeft="36px"
+
+            android:text="mirror穿搭|冷美人的慵懶隨性風"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

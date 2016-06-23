@@ -7,7 +7,12 @@ import android.widget.TextView;
 
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.ui.adapter.pageradapter.MyViewPagerAdapter;
+import com.zhao.mirrorfromgentleman.ui.fragment.AllFragment;
+import com.zhao.mirrorfromgentleman.ui.fragment.MattFragment;
+import com.zhao.mirrorfromgentleman.ui.fragment.ProjectFragment;
 import com.zhao.mirrorfromgentleman.ui.fragment.RepeatFragment;
+import com.zhao.mirrorfromgentleman.ui.fragment.ShoppingFragment;
+import com.zhao.mirrorfromgentleman.ui.fragment.SungLassesFragment;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
 import com.zhao.mirrorfromgentleman.ui.utils.usedtools.SPUtils;
@@ -21,17 +26,18 @@ import java.util.List;
  * Created by 旭哥哥 on 16/6/15.
  */
 @BindContent(R.layout.activity_main)
-public class MainActivity extends BaseActivity implements RepeatFragment.ControlViewpager {
+public class MainActivity extends BaseActivity implements RepeatFragment.ControlViewpager, AllFragment.ControlViewpager, MattFragment.ControlViewpager, SungLassesFragment.ControlViewpager, ProjectFragment.ControlViewpager, ShoppingFragment.ControlViewpager {
     @BindView(R.id.main_vp)
     private VerticalViewPager viewPager;
-        @BindView(R.id.login_tv)
-        TextView loginTv;
+    @BindView(R.id.login_tv)
+    TextView loginTv;
     private MyViewPagerAdapter myViewPagerAdapter;
     private List<Fragment> fragments;
     private RepeatFragment repeatFragment;
+    private AllFragment allFragment;
     private String shoppingTv;
 
-    private String titles[] ={"瀏覽所有分類","瀏覽平光鏡","瀏覽太陽鏡","專題分享","我的購物車","瀏覽所有分類"};
+    private String titles[] = {"瀏覽所有分類", "瀏覽平光鏡", "瀏覽太陽鏡", "專題分享", "我的購物車", "瀏覽所有分類"};
 
     @Override
     protected void setListener() {
@@ -70,15 +76,25 @@ public class MainActivity extends BaseActivity implements RepeatFragment.Control
             });
         }
     }
+
     private void initFragment() {
         fragments = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
 
-            repeatFragment = new RepeatFragment(titles[i]);
-            //在这个Frm中通过set出内部类定义的接口
-//            repeatFragment.setControlViewpager(this);
-            fragments.add(repeatFragment);
-        }
+        allFragment = new AllFragment("瀏覽所有分類");
+        allFragment.setControlViewpager(MainActivity.this);
+        fragments.add(allFragment);
+        MattFragment mattFragment = new MattFragment("瀏覽平光鏡");
+        mattFragment.setControlViewpager(MainActivity.this);
+        fragments.add(mattFragment);
+        SungLassesFragment sungLassesFragment = new SungLassesFragment("瀏覽太陽鏡");
+        sungLassesFragment.setControlViewpager(MainActivity.this);
+        fragments.add(sungLassesFragment);
+        ProjectFragment projectFragment = new ProjectFragment("專題分享");
+        projectFragment.setControlViewpager(MainActivity.this);
+        fragments.add(projectFragment);
+        ShoppingFragment shoppingFragment = new ShoppingFragment("我的購物車");
+        shoppingFragment.setControlViewpager(MainActivity.this);
+        fragments.add(shoppingFragment);
 
 
 

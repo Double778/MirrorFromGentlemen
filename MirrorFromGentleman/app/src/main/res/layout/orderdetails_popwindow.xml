@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/pop_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="选择支付方式" />
+
+    <View
+        android:id="@+id/pop_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/pop_tv"
+        android:background="#000000" />
+
+    <Button
+        android:id="@+id/pop_weixinbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pop_view"
+        android:layout_centerHorizontal="true"
+        android:text="微信支付" />
+
+    <Button
+        android:id="@+id/pop_zhifubaobtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pop_weixinbtn"
+        android:layout_centerHorizontal="true"
+        android:text="支付宝支付" />
+
+
+</RelativeLayout>

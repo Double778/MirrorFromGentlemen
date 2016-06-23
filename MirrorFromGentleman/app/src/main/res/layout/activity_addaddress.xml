@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46px"
+        android:layout_marginTop="30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加地址"
+            android:textColor="#333"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ImageView
+        android:id="@+id/aty_addadress_retruniv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="46px"
+        android:layout_marginTop="30px"
+        android:background="@mipmap/ic_close" />
+
+    <ImageView
+        android:id="@+id/aty_addadress_titleiv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_addadress_retruniv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@mipmap/ic_found" />
+
+    <TextView
+        android:id="@+id/aty_addadress_nametv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_addadress_titleiv"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="40px"
+        android:text="添加收件人姓名"
+        android:textColor="#333"
+        android:textSize="24px" />
+
+    <EditText
+        android:id="@+id/aty_addadress_nameet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_addadress_nametv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/address_shape"
+        android:padding="20px" />
+
+    <TextView
+        android:id="@+id/aty_addadress_numtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_addadress_nameet"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="30px"
+        android:text="添加联络电话号码"
+        android:textColor="#333"
+        android:textSize="24px" />
+
+
+    <EditText
+        android:id="@+id/aty_addadress_numet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_addadress_numtv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/address_shape"
+        android:padding="20px" />
+
+    <TextView
+        android:id="@+id/aty_addadress_adresstv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_addadress_numet"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="30px"
+        android:text="添加收货地址"
+        android:textColor="#333"
+        android:textSize="24px" />
+
+    <EditText
+        android:id="@+id/aty_addadress_adresset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_addadress_adresstv"
+        android:layout_margin="20px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:background="@drawable/address_shape"
+        android:paddingBottom="160px"/>
+
+    <Button
+        android:id="@+id/aty_addadress_presentbtn"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_below="@id/aty_addadress_adresset"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="50px"
+        android:background="#f95559"
+        android:text="提交地址"
+        android:textColor="#fff" />
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

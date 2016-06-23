@@ -2,11 +2,9 @@ package com.zhao.mirrorfromgentleman.ui.activity.adornimage;
 
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhao.mirrorfromgentleman.ui.activity.BaseActivity;
 import com.zhao.mirrorfromgentleman.view.SmoothImageView;
-
 import java.util.ArrayList;
 
 /**

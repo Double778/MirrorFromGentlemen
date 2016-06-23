@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhao.mirrorfromgentleman.view.SlidingMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myalladdress_remove"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="30px"
+    android:layout_marginRight="30px"
+    android:layout_marginTop="10dp">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/item_auto_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px">
+
+            <TextView
+                android:id="@+id/myalladdress_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:text="收件人:" />
+
+            <TextView
+                android:id="@+id/myalladdress_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:layout_toRightOf="@id/myalladdress_name_tv"
+                android:text="花花" />
+
+            <TextView
+                android:id="@+id/myalladdress_address_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/myalladdress_name"
+                android:layout_marginTop="20px"
+                android:text="地址:" />
+
+            <TextView
+                android:id="@+id/myalladdress_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/myalladdress_name"
+                android:layout_marginTop="20px"
+                android:layout_toRightOf="@id/myalladdress_address_tv"
+                android:text="花花" />
+
+            <TextView
+                android:id="@+id/myalladdress_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/myalladdress_address"
+                android:layout_marginTop="20px"
+                android:paddingBottom="40px"
+                android:text="123466788" />
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhao.mirrorfromgentleman.view.SlidingMenuView>
+
+
+

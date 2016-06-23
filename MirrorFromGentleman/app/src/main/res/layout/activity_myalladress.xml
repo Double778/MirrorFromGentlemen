@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46px"
+        android:layout_marginTop="30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的所有地址"
+            android:textColor="#333"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ImageView
+        android:id="@+id/aty_myaddress_returniv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="46px"
+        android:layout_marginTop="30px"
+        android:background="@mipmap/ic_close" />
+
+    <ImageView
+        android:id="@+id/aty_myaddress_titleiv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="84px"
+        android:background="@mipmap/ic_found" />
+
+    <Button
+        android:id="@+id/aty_myaddress_btn"
+        android:layout_width="match_parent"
+        android:layout_height="160px"
+        android:layout_below="@id/aty_myaddress_titleiv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="50px"
+        android:background="#fff"
+        android:text="添加地址" />
+
+    <com.zhao.mirrorfromgentleman.view.SwipListView
+        android:id="@+id/aty_myaddress_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_myaddress_btn"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

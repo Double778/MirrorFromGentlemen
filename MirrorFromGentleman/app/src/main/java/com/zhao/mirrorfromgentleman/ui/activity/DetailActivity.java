@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.ui.MyApplication;
 import com.zhao.mirrorfromgentleman.ui.activity.adornimage.AdornImageActivity;
+import com.zhao.mirrorfromgentleman.ui.activity.buydetails.OrderDetailsActivity;
 import com.zhao.mirrorfromgentleman.ui.adapter.details.BottomAdapter;
 import com.zhao.mirrorfromgentleman.ui.adapter.details.TopAdapter;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
@@ -95,7 +96,7 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
      * @param view
      * @param firstVisibleItem 第一个可见的Item
      * @param visibleItemCount 屏幕中可见的Item个数
-     * @param totalItemCount 全部Item个数
+     * @param totalItemCount   全部Item个数
      */
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
@@ -106,7 +107,7 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
         }
 
 
-        if (firstVisibleItem ==0) {
+        if (firstVisibleItem == 0) {
             // 当第一个可见的Item为0时, 将底部功能栏滑出屏幕
             showObjectAnimator(0, -ScreenUtils.getScreenHeight(MyApplication.getContext()), 0);
 
@@ -144,16 +145,14 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
     }
 
 
-
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.activity_details_back_iv:
                 finish();
                 break;
             case R.id.activity_details_bug_iv:
-                // TODO 跳转购买详情
-
+                startActivity(new Intent(this, OrderDetailsActivity.class));
                 break;
             case R.id.activity_details_wear_images_btn:
                 startActivity(new Intent(this, AdornImageActivity.class));

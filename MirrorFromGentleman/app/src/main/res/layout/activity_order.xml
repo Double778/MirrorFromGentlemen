@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46px"
+        android:layout_marginTop="30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单详情"
+            android:textColor="#333"
+            android:textSize="34px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ImageView
+        android:id="@+id/aty_order_returniv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="46px"
+        android:layout_marginTop="30px"
+        android:background="@mipmap/ic_close" />
+
+    <ImageView
+        android:id="@+id/aty_order_titleiv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_order_returniv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="20px"
+        android:background="@mipmap/ic_found" />
+
+    <TextView
+        android:id="@+id/aty_order_msgtv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aty_order_titleiv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="40px"
+        android:background="@mipmap/ic_adresset"
+        android:text="请填写收件人信息"
+        android:paddingTop="20px"
+        android:paddingLeft="20px"
+        android:textColor="#333"
+        android:textSize="26px" />
+
+    <View
+        android:id="@+id/aty_order_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/aty_order_msgtv"
+        android:layout_marginTop="1px"
+        android:background="#ddd" />
+
+    <Button
+        android:id="@+id/aty_order_addressbtn"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:layout_below="@id/aty_order_msgtv"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="1px"
+        android:background="#fff"
+        android:text="添加地址"
+        android:textColor="#333"
+        android:textSize="26px" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/aty_order_layout"
+        android:layout_width="match_parent"
+        android:layout_height="262px"
+        android:layout_below="@id/aty_order_addressbtn"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="40px"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="228px"
+            android:layout_height="262px">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_launcher" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/aty_order_nametv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:text="woodlike"
+                android:textColor="#333"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/aty_order_addresstv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:text="11"
+                android:textColor="#333"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/aty_order_moneytv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30px"
+                android:layout_marginTop="30px"
+                android:text="111"
+                android:textColor="#ff5aab"
+                android:textSize="24px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <Button
+        android:id="@+id/aty_order_orderbtn"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_below="@id/aty_order_layout"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="50px"
+        android:background="#f95559"
+        android:text="确认下单"
+        android:textColor="#fff"
+        android:textSize="30px" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

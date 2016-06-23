@@ -28,19 +28,18 @@
 
         <activity android:name=".ui.activity.adornimage.AdornImageDetailsActivity" />
         <activity android:name=".ui.activity.DetailActivity"/>
-<activity android:name=".ui.activity.adornimage.AdornImageActivity"/>
+        <activity android:name=".ui.activity.adornimage.AdornImageActivity"/>
         <activity android:name=".ui.activity.MainActivity"/>
-
-
+        <activity android:name=".ui.activity.buydetails.MyAllAddressActivity" />
+        <activity android:name=".ui.activity.buydetails.AddAddressActivity" />
+        <activity android:name=".ui.activity.buydetails.ModifiedAddressActivity" />
+        <activity android:name=".ui.activity.buydetails.OrderDetailsActivity"/>
         <activity android:name=".ui.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
         <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.CreateActivity"/>
         <activity

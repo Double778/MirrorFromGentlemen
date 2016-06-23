@@ -24,7 +24,6 @@ import com.zhao.mirrorfromgentleman.ui.utils.AdornImageUtil;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
 import com.zhao.mirrorfromgentleman.view.CommonVideoView;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +68,8 @@ public class AdornImageActivity extends BaseActivity {
         super.onConfigurationChanged(newConfig);
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "1:" + 1, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "1:" + 1, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "巴神好帅。。", Toast.LENGTH_SHORT).show();
             adornVideoView.setFullScreen();
         } else {
             adornVideoView.setNormalScreen();

@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <com.zhao.mirrorfromgentleman.view.CommonVideoView
         android:id="@+id/item_commonvv"
         android:layout_width="match_parent"

@@ -126,8 +126,6 @@ public class ShoppingFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onResponse(Bean response) {
                 bean = response;
-
-
                 Log.d("RepeatFragment", "response.getData().getList().size():" + response.getData().getList().size());
                 recyclerView.setLayoutManager(new GridLayoutManager(context, response.getData().getList().size()));
                 shoppongRvadapter.setBean(bean);
@@ -266,8 +264,6 @@ public class ShoppingFragment extends BaseFragment implements View.OnClickListen
                     pop_up.setVisibility(View.VISIBLE);
                     recyclerView.setVisibility(View.VISIBLE);
                 }
-//                frm_ppp_Lt.startAnimation(animation2);
-
             }
         });
 

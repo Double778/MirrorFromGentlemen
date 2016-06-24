@@ -3,6 +3,7 @@ package com.zhao.mirrorfromgentleman.ui;
 import android.app.Application;
 import android.content.Context;
 
+import com.litesuits.orm.LiteOrm;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -21,6 +22,9 @@ public class MyApplication extends Application {
         // UniversalImageLoader 配置
         ImageLoaderConfiguration imageLoaderConfiguration = ImageLoaderConfiguration.createDefault(this);
         ImageLoader.getInstance().init(imageLoaderConfiguration);
+
+
+
     }
 
     public static Context getContext() {

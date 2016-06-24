@@ -110,14 +110,12 @@ public class MattFragment extends BaseFragment implements View.OnClickListener, 
         }
 
         initPupop();
-
         Map<String, String> params = new HashMap<>();
         params.put("token", "0");
         params.put("device_type", "2");
 
 
         mattRvadapter  = new MattRvadapter(context);
-
         OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/products/goods_list", new OkHttpClientManager.ResultCallback<Bean>() {
             @Override
             public void onError(Request request, Exception e) {
@@ -127,14 +125,11 @@ public class MattFragment extends BaseFragment implements View.OnClickListener, 
             @Override
             public void onResponse(Bean response) {
                 bean = response;
-
-
                 Log.d("RepeatFragment", "response.getData().getList().size():" + response.getData().getList().size());
                 recyclerView.setLayoutManager(new GridLayoutManager(context, response.getData().getList().size()));
                 mattRvadapter.setBean(bean);
                 recyclerView.setAdapter(mattRvadapter);
             }
-
 
         }, params);
 

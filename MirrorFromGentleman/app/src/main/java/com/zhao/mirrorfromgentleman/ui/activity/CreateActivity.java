@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by dllo on 16/6/17.
+ * Created by 旭哥哥 on 16/6/17.
  */
 @BindContent(R.layout.activity_create)
 public class CreateActivity extends BaseActivity implements View.OnClickListener {
@@ -49,12 +49,11 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
     @Override
     public void initData() {
         ExitIV.setOnClickListener(this);
-
         sendTv.setOnClickListener(this);
-
         createNewBtn.setOnClickListener(this);
 
     }
+
 
     @Override
     public void onClick(View v) {
@@ -65,6 +64,7 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.send_tv:
+                //判断是否为电话号码调用本类方法
                 boolean phoneNumber = isMobileNO(createPhoneEt.getText().toString());
                 if (phoneNumber == true) {
                     params.put("phone_number", createPhoneEt.getText().toString());
@@ -75,10 +75,11 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                             Toast.makeText(CreateActivity.this, "發送失敗,請開啟網絡", Toast.LENGTH_SHORT).show();
                         }
 
+                        //如果发送成功会弹出吐司 这个Okhttp给泛型是String
                         @Override
                         public void onResponse(String response) {
                             Toast.makeText(CreateActivity.this, "验证码发送成功", Toast.LENGTH_SHORT).show();
-
+                            //通过判断这个timer改变时间来控制TextView的点击状态 如果没走完60s 不可以再次点击
                             timer = new CountDownTimer(59000, 1000) {
                                 @Override
                                 public void onTick(long millisUntilFinished) {
@@ -87,6 +88,7 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
 
                                 }
 
+                                //如果结束后会变回TextView的文字效果
                                 @Override
                                 public void onFinish() {
                                     sendTv.setText("發送驗證碼");
@@ -98,7 +100,7 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                         }
 
                     }, params);
-                }else {
+                } else {
                     Toast.makeText(this, "您輸入的電話號碼不合法", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -109,26 +111,29 @@ public class CreateActivity extends BaseActivity implements View.OnClickListener
                 param.put("number", createValidationEt.getText().toString());
                 param.put("password", createNewPasswordEt.getText().toString());
 
+                //注册时候的OkHttp的时候给了一个数据类 控制后面的
                 OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/user/reg", new OkHttpClientManager.ResultCallback<RegisteredBean>() {
                     @Override
                     public void onError(Request request, Exception e) {
                         Toast.makeText(CreateActivity.this, "發送失敗,請開啟網絡", Toast.LENGTH_SHORT).show();
                     }
 
+                    //成功是会在服务器post回调一个码为1 加以判断
                     @Override
                     public void onResponse(RegisteredBean response) {
-                        if (response.getResult().toString().equals("1")){
+                        if (response.getResult().toString().equals("1")) {
                             Toast.makeText(CreateActivity.this, "您以成功註冊", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             Toast.makeText(CreateActivity.this, response.getMsg().toString(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
 
-                },param);
+                }, param);
                 break;
         }
     }
+
     /**
      * 验证手机格式
      */

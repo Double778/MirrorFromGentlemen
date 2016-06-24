@@ -19,10 +19,12 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.litesuits.orm.LiteOrm;
 import com.squareup.okhttp.Request;
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.model.bean.Bean;
 import com.zhao.mirrorfromgentleman.model.bean.MyData;
+import com.zhao.mirrorfromgentleman.model.bean.UrlBean;
 import com.zhao.mirrorfromgentleman.model.net.OkHttpClientManager;
 import com.zhao.mirrorfromgentleman.ui.activity.DetailActivity;
 import com.zhao.mirrorfromgentleman.ui.adapter.lvadapter.RepeatLvAdapter;
@@ -32,6 +34,7 @@ import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
 import com.zhao.mirrorfromgentleman.view.SysApplication;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -126,9 +129,6 @@ public class AllFragment extends BaseFragment implements View.OnClickListener, A
             @Override
             public void onResponse(Bean response) {
                 bean = response;
-
-
-                Log.d("RepeatFragment", "response.getData().getList().size():" + response.getData().getList().size());
                 recyclerView.setLayoutManager(new GridLayoutManager(context, response.getData().getList().size()));
                 allRvadapter.setBean(bean);
                 recyclerView.setAdapter(allRvadapter);
@@ -267,7 +267,7 @@ public class AllFragment extends BaseFragment implements View.OnClickListener, A
                     pop_up.setVisibility(View.VISIBLE);
                     recyclerView.setVisibility(View.VISIBLE);
                 }
-//                frm_ppp_Lt.startAnimation(animation2);
+
 
             }
         });

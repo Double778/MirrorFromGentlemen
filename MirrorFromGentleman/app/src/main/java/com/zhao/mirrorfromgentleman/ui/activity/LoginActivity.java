@@ -47,8 +47,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @BindView(R.id.weibo_icon_Iv)
     ImageView weiboIv;
     @BindView(R.id.weixin_icon_Iv)
-    ImageView QQIv;
+    private ImageView QQIv;
 
+    private Platform QQ;
 
     @Override
     protected void setListener() {
@@ -64,16 +65,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         loginBtn.setOnClickListener(this);
 
         TextWatcher textWatcher = new TextWatcher() {
+            //改变前
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
+            //改变中
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
+            //通过判断这个Et的长度大小来改变登录按钮是否变颜色是否可点击
             @Override
             public void afterTextChanged(Editable s) {
                 if (phoneEt.length() > 0 && passwordEt.length() > 0) {
@@ -84,8 +87,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
             }
         };
+        //添加上点击
         phoneEt.addTextChangedListener(textWatcher);
         passwordEt.addTextChangedListener(textWatcher);
+        //微博登录
         weiboIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,14 +112,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     public void onCancel(Platform platform, int i) {
 
                     }
+
                 });
                 weibo.authorize();
+
+                String text = "我的購物車";
+                if (weibo.isValid()) {
+                    Toast.makeText(LoginActivity.this, "登錄成功", Toast.LENGTH_SHORT).show();
+                    SPUtils.put(LoginActivity.this, "TextChange", text);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this, "你未登录成功", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        //QQ登录
         QQIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Platform QQ = ShareSDK.getPlatform(cn.sharesdk.tencent.qq.QQ.NAME);
+                QQ = ShareSDK.getPlatform(cn.sharesdk.tencent.qq.QQ.NAME);
                 QQ.setPlatformActionListener(new PlatformActionListener() {
                     @Override
                     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
@@ -131,6 +147,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                     }
                 });
+                //给个判断返回值改变登录按钮不可点击 直接跳转到购物车
+                String text = "我的購物車";
+                if (QQ.isValid()) {
+                    Toast.makeText(LoginActivity.this, "登錄成功", Toast.LENGTH_SHORT).show();
+                    SPUtils.put(LoginActivity.this, "TextChange", text);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this, "你未登录成功", Toast.LENGTH_SHORT).show();
+                }
                 QQ.authorize();
             }
         });
@@ -138,6 +163,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        //定义hasMap
         Map<String, String> params = new HashMap<>();
         switch (v.getId()) {
             case R.id.login_exit_iv:
@@ -148,10 +174,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 startActivity(intent);
                 break;
             case R.id.login_btn:
+                //给上post请求需要的值
                 params.put("phone_number", phoneEt.getText().toString());
                 params.put("password", passwordEt.getText().toString());
 
-                //判断
+
+                //判断是否为电话号
                 boolean phoneNumber = isMobileNO(phoneEt.getText().toString());
                 if (phoneNumber == true) {
                     OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/user/login", new OkHttpClientManager.ResultCallback<RegisteredBean>() {
@@ -159,7 +187,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         public void onError(Request request, Exception e) {
                             Toast.makeText(LoginActivity.this, "發送失敗,請開啟網絡", Toast.LENGTH_SHORT).show();
                         }
-
+                        //如果请求返回值为1 会提示登录成功 并且跳到我的购物车
                         @Override
                         public void onResponse(RegisteredBean response) {
                             String text = "我的購物車";
@@ -167,7 +195,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                 Toast.makeText(LoginActivity.this, "登錄成功", Toast.LENGTH_SHORT).show();
                                 SPUtils.put(LoginActivity.this, "TextChange", text);
                                 finish();
-
+                          //返回不成功会返回post请求返回的值 这个值是改变的
                             } else {
                                 Toast.makeText(LoginActivity.this, response.getMsg().toString(), Toast.LENGTH_SHORT).show();
 
@@ -177,6 +205,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
 
                     }, params);
+                    //通过判断后 如果不合法 弹出一个Toast
                 } else {
                     Toast.makeText(this, "您輸入的電話號碼不合法", Toast.LENGTH_SHORT).show();
                 }
@@ -185,7 +214,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     /**
-     * 验证手机格式
+     * 验证手机格式方法
      */
     public static boolean isMobileNO(String mobiles) {
         /*
@@ -197,5 +226,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         String telRegex = "[1][358]\\d{9}";//"[1]"代表第1位为数字1，"[358]"代表第二位可以为3、5、8中的一个，"\\d{9}"代表后面是可以是0～9的数字，有9位。
         if (TextUtils.isEmpty(mobiles)) return false;
         else return mobiles.matches(telRegex);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 }

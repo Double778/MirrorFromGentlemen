@@ -87,7 +87,7 @@ public class DetailActivity extends BaseActivity implements AbsListView.OnScroll
         noScrollListView.setAdapter(new TopAdapter(this));
 
     }
-
+    //分享
     private void showShare() {
         ShareSDK.initSDK(this);
         OnekeyShare oks = new OnekeyShare();

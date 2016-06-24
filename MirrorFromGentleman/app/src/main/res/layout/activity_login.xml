@@ -118,16 +118,16 @@
 
         <ImageView
             android:id="@+id/weibo_icon_Iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130px"
+            android:layout_height="130px"
             android:layout_marginRight="80px"
-            android:background="@mipmap/weiboicon" />
+            android:background="@mipmap/weibobo" />
 
         <ImageView
             android:id="@+id/weixin_icon_Iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/weixinicon" />
+            android:layout_width="130px"
+            android:layout_height="130px"
+            android:background="@mipmap/qqqq" />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <TextView

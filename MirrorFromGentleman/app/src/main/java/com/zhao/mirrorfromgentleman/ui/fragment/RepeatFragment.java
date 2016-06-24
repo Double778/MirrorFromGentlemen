@@ -22,10 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.litesuits.orm.LiteOrm;
 import com.squareup.okhttp.Request;
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.model.bean.Bean;
 import com.zhao.mirrorfromgentleman.model.bean.MyData;
+import com.zhao.mirrorfromgentleman.model.bean.UrlBean;
 import com.zhao.mirrorfromgentleman.model.net.OkHttpClientManager;
 import com.zhao.mirrorfromgentleman.ui.activity.DetailActivity;
 import com.zhao.mirrorfromgentleman.ui.adapter.lvadapter.RepeatLvAdapter;
@@ -110,7 +112,6 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
         Map<String, String> params = new HashMap<>();
         params.put("token", "0");
         params.put("device_type", "2");
-
         rvAdapter = new RepeatRvadapter(context);
 
 
@@ -123,8 +124,6 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void onResponse(Bean response) {
                 bean = response;
-
-
                 Log.d("RepeatFragment", "response.getData().getList().size():" + response.getData().getList().size());
                 recyclerView.setLayoutManager(new GridLayoutManager(context, response.getData().getList().size()));
                 rvAdapter.setBean(bean);
@@ -186,7 +185,6 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
         startActivity(new Intent(context, DetailActivity.class));
     }
 
-
     //自定义的接口 来控制Viewpager的位置
     public interface ControlViewpager {
         void control(int pos);
@@ -201,7 +199,6 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
 
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-
         frm_ppp_Lt = LayoutInflater.from(getActivity()).inflate(R.layout.frm_repeat_ppp, null);
 
         //初始化这些个组件
@@ -251,7 +248,6 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
         }
 
         popupWindow.setContentView(frm_ppp_Lt);
-
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
@@ -263,7 +259,6 @@ public class RepeatFragment extends BaseFragment implements View.OnClickListener
                     pop_up.setVisibility(View.VISIBLE);
                     recyclerView.setVisibility(View.VISIBLE);
                 }
-//                frm_ppp_Lt.startAnimation(animation2);
 
             }
         });

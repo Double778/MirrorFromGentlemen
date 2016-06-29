@@ -8,23 +8,30 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.zhao.mirrorfromgentleman.R;
+import com.zhao.mirrorfromgentleman.model.bean.GlassesInforBean;
 import com.zhao.mirrorfromgentleman.ui.MyApplication;
+import com.zhao.mirrorfromgentleman.ui.utils.cache.VolleyImageLoaderTool;
 import com.zhao.mirrorfromgentleman.ui.utils.usedtools.ScreenUtils;
 
 /**
  * Created by 华哥哥 on 16/6/18.
  */
 public class BottomAdapter extends BaseAdapter {
+    private GlassesInforBean glassesInforBean;
     private Context context;
 
     public BottomAdapter(Context context) {
         this.context = context;
+    }
 
+    public void setGlassesInforBean(GlassesInforBean glassesInforBean) {
+        this.glassesInforBean = glassesInforBean;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return glassesInforBean.getData().getDesign_des().size();
     }
 
     @Override
@@ -43,7 +50,6 @@ public class BottomAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_details_bottom_lv, parent, false);
             convertView.setMinimumHeight(ScreenUtils.getScreenHeight(MyApplication.getContext()) / 3 * 2);
-
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
@@ -51,6 +57,7 @@ public class BottomAdapter extends BaseAdapter {
         }
 
         holder.imageView.setMinimumHeight(ScreenUtils.getScreenHeight(MyApplication.getContext()) / 3 * 2);
+        VolleyImageLoaderTool.showImage(holder.imageView, glassesInforBean.getData().getDesign_des().get(position).getImg());
 //        holder.imageView.setMinimumWidth(ScreenUtils.getScreenWidth(MyApplication.getContext()));
 //
 //        holder.imageView.setImageResource(imgs.get(position));

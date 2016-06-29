@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.model.bean.Bean;
+import com.zhao.mirrorfromgentleman.model.bean.ProductInforBean;
 import com.zhao.mirrorfromgentleman.ui.utils.cache.VolleyImageLoaderTool;
 
 /**
@@ -17,15 +18,16 @@ import com.zhao.mirrorfromgentleman.ui.utils.cache.VolleyImageLoaderTool;
  */
 public class MattRvadapter extends RecyclerView.Adapter<MattRvadapter.MyViewHolder> {
 
-    private Bean bean;
+    private ProductInforBean bean;
     private Context context;
     private MyRvOnclickListener myRvOnclickListener;
+
 
     public void setMyRvOnclickListener(MyRvOnclickListener myRvOnclickListener) {
         this.myRvOnclickListener = myRvOnclickListener;
     }
 
-    public void setBean(Bean bean) {
+    public void setBean(ProductInforBean bean) {
         this.bean = bean;
         notifyDataSetChanged();
     }

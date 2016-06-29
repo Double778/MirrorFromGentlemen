@@ -5,11 +5,6 @@ package com.zhao.mirrorfromgentleman.ui.utils.usedtools;
  * Created by hanxu on 16/6/12.
  */
 import android.util.Log;
-
-
-
-
-
 /**
  * Log统一管理类
  *

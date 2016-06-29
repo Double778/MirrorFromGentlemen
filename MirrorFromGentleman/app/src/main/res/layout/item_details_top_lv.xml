@@ -14,19 +14,88 @@
             android:layout_width="match_parent"
             android:layout_height="4px"
             android:background="@mipmap/biaoti" />
-        <TextView
-            android:id="@+id/item_details_top_name_tv"
-            style="@style/DetailsActivityTextViewStyle"
-            android:textSize="60px"
-            android:layout_marginTop="30px"
-            android:layout_below="@id/item_details_top_v_1"
-            android:text="@string/test"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_details_top"
+            >
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/item_details_top_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                   >
+
+                    <TextView
+                        android:id="@+id/item_details_top_location_tv"
+                        android:text="辣子时尚之都韩国"
+                        android:textSize="30px"
+                        android:layout_marginTop="30px"
+                        style="@style/DetailsActivityTextViewStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"/>
+
+
+
+                    <TextView
+                        android:id="@+id/item_details_top_english_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxEms="12"
+                        android:text="玩儿合伙人王二虎为了人口"
+                        android:textSize="30px"
+                        style="@style/DetailsActivityTextViewStyle"
+                        android:layout_gravity="right"
+                        />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+
+                <TextView
+                    android:id="@+id/item_details_top_country_tv"
+                    style="@style/DetailsActivityTextViewStyle"
+                    android:textSize="60px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="30px"
+                    android:layout_below="@id/item_details_top_v_1"
+                    android:layout_toRightOf="@id/item_details_top_left"
+                    android:text="@string/test"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/item_details_top_name_tv"
+                style="@style/DetailsActivityTextViewStyle"
+                android:textSize="60px"
+                android:layout_marginTop="30px"
+                android:layout_below="@id/item_details_top_v_1"
+                android:text="mingzi"
+                android:layout_centerHorizontal="true"/>
+
+
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
         <View
             android:id="@+id/item_details_top_v_2"
             android:layout_width="match_parent"
             android:layout_height="4px"
             android:layout_marginTop="34px"
-            android:layout_below="@id/item_details_top_name_tv"
+            android:layout_below="@id/item_details_top"
             android:background="@mipmap/biaoti" />
         <TextView
             android:id="@+id/item_details_top_content_tv"
@@ -35,7 +104,9 @@
             android:layout_marginTop="30px"
             android:layout_marginBottom="16px"
             android:layout_below="@id/item_details_top_v_2"
+            android:layout_centerHorizontal="true"
             android:text="@string/test"/>
+
 
 
     </com.zhy.autolayout.AutoRelativeLayout>

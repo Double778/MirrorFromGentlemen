@@ -7,7 +7,7 @@
         android:id="@+id/activity_details_background_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/aaaabbbb" />
+        android:scaleType="fitXY" />
 
     <ListView
         android:id="@+id/activity_details_bottom_lv"

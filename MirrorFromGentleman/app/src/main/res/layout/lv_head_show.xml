@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/wear_show_head_iv"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"
+        android:background="#50000000"
+        android:src="@mipmap/d"
+        />
+
+    <!--<com.mirroreye.mirror.utils.CommonVideoView-->
+    <com.zhao.mirrorfromgentleman.view.CommonVideoView
+        android:visibility="gone"
+        android:id="@+id/common_videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/wear_show_stop_play_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/showclose"
+        android:padding="@dimen/showClosePadding"
+        android:layout_gravity="right"
+        android:layout_marginTop="10px"
+        android:layout_marginRight="15px"
+       />
+
+    <ImageView
+        android:id="@+id/wear_head_vv_start_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/play"/>
+
+
+</com.zhy.autolayout.AutoFrameLayout>

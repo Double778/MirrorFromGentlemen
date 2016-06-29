@@ -43,6 +43,9 @@
         </activity>
         <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.CreateActivity"/>
+        <activity android:name=".ui.activity.adornimage.WearShowActivity"
+            android:configChanges="orientation|screenSize|screenLayout"/>
+
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

@@ -13,6 +13,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.model.bean.Bean;
+import com.zhao.mirrorfromgentleman.model.bean.ProductInforBean;
 import com.zhao.mirrorfromgentleman.ui.utils.cache.VolleyImageLoaderTool;
 
 /**
@@ -20,7 +21,7 @@ import com.zhao.mirrorfromgentleman.ui.utils.cache.VolleyImageLoaderTool;
  */
 public class AllRvadapter extends RecyclerView.Adapter<AllRvadapter.MyViewHolder> {
 
-    private Bean bean;
+    private ProductInforBean bean;
     private Context context;
     private MyRvOnclickListener myRvOnclickListener;
 
@@ -28,7 +29,7 @@ public class AllRvadapter extends RecyclerView.Adapter<AllRvadapter.MyViewHolder
         this.myRvOnclickListener = myRvOnclickListener;
     }
 
-    public void setBean(Bean bean) {
+    public void setBean(ProductInforBean bean) {
         this.bean = bean;
         notifyDataSetChanged();
     }
@@ -47,15 +48,15 @@ public class AllRvadapter extends RecyclerView.Adapter<AllRvadapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        DisplayImageOptions options;
-        options = new DisplayImageOptions.Builder()
-                .cacheInMemory(true)//设置下载的图片是否缓存在内存中
-                .cacheOnDisk(true)//设置下载的图片是否缓存在SD卡中
-                .bitmapConfig(Bitmap.Config.RGB_565)//设置图片的解码类型//
-                .build();//构建完成
-        ImageLoader.getInstance().displayImage(bean.getData().getList().get(position).getGoods_img(), holder.iv, options);
+//        DisplayImageOptions options;
+//        options = new DisplayImageOptions.Builder()
+//                .cacheInMemory(true)//设置下载的图片是否缓存在内存中
+//                .cacheOnDisk(true)//设置下载的图片是否缓存在SD卡中
+//                .bitmapConfig(Bitmap.Config.RGB_565)//设置图片的解码类型//
+//                .build();//构建完成
+//        ImageLoader.getInstance().displayImage(bean.getData().getList().get(position).getGoods_img(), holder.iv, options);
         holder.textView.setText(bean.getData().getList().get(position).getGoods_price());
-//        VolleyImageLoaderTool.showImage(holder.iv, bean.getData().getList().get(position).getGoods_img());
+        VolleyImageLoaderTool.showImage(holder.iv, bean.getData().getList().get(position).getGoods_img());
         if (myRvOnclickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

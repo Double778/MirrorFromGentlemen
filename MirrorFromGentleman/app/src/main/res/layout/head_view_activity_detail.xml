@@ -35,42 +35,75 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="@mipmap/ic_detail_aty_background"
-            android:paddingBottom="60px">
+            android:paddingBottom="60px"
+            >
 
             <TextView
-                android:id="@+id/head_view_activity_detail_title_tv"
+                android:id="@+id/head_view_activity_detail_name_tv"
                 style="@style/DetailsActivityTextViewStyle"
                 android:layout_marginTop="100px"
                 android:text="@string/test"
+                android:layout_centerHorizontal="true"
                 android:textSize="50px" />
 
             <View
                 android:id="@+id/head_view_activity_detail_write_line_1"
                 android:layout_width="520px"
                 android:layout_height="4px"
-                android:layout_below="@id/head_view_activity_detail_title_tv"
+                android:layout_below="@id/head_view_activity_detail_name_tv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="36px"
                 android:background="@mipmap/biaoti" />
 
-            <TextView
-                android:id="@+id/head_view_activity_detail_name_tv"
-                style="@style/DetailsActivityTextViewStyle"
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/lines"
                 android:layout_below="@id/head_view_activity_detail_write_line_1"
-                android:layout_marginTop="19px"
-                android:text="@string/test"
-                android:textSize="36px" />
+                android:layout_centerHorizontal="true">
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/head_view_activity_detail_sex_tv"-->
+                    <!--android:layout_marginTop="19px"-->
+                    <!--style="@style/DetailsActivityTextViewStyle"-->
+                    <!--android:text="@string/test"-->
+                    <!--android:textSize="36px"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/head_view_activity_detail_shu_tv"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="丨"-->
+                    <!--android:layout_marginTop="19px"-->
+                    <!--style="@style/DetailsActivityTextViewStyle"-->
+                    <!--android:textSize="36px"-->
+                    />
+
+                <TextView
+                    android:id="@+id/head_view_activity_detail_brand_tv"
+                    style="@style/DetailsActivityTextViewStyle"
+                    android:layout_marginTop="19px"
+                    android:text="@string/test"
+                    android:textSize="36px" />
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
 
             <View
                 android:id="@+id/head_view_activity_detail_write_line_2"
                 android:layout_width="520px"
                 android:layout_height="4px"
-                android:layout_below="@id/head_view_activity_detail_name_tv"
+                android:layout_below="@id/lines"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="19px"
                 android:background="@mipmap/biaoti" />
 
             <TextView
+                android:layout_width="520px"
+                android:layout_centerHorizontal="true"
                 android:id="@+id/head_view_activity_detail_content_tv"
                 style="@style/DetailsActivityTextViewStyle"
                 android:layout_below="@id/head_view_activity_detail_write_line_2"
@@ -79,6 +112,7 @@
                 android:textSize="26px" />
 
             <TextView
+                android:layout_centerHorizontal="true"
                 android:id="@+id/head_view_activity_detail_price_tv"
                 style="@style/DetailsActivityTextViewStyle"
                 android:layout_below="@id/head_view_activity_detail_content_tv"
@@ -98,6 +132,7 @@
             android:layout_marginBottom="20px"
             android:src="@mipmap/ic_details_activity_arrow" />
         <TextView
+            android:layout_centerHorizontal="true"
             style="@style/DetailsActivityTextViewStyle"
             android:layout_above="@id/head_view_activity_detail_arrow_iv"
             android:layout_marginBottom="14px"

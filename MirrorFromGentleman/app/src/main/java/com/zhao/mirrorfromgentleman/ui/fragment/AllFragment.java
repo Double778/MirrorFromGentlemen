@@ -19,12 +19,12 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.litesuits.orm.LiteOrm;
+import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
 import com.zhao.mirrorfromgentleman.R;
 import com.zhao.mirrorfromgentleman.model.bean.Bean;
 import com.zhao.mirrorfromgentleman.model.bean.MyData;
-import com.zhao.mirrorfromgentleman.model.bean.UrlBean;
+import com.zhao.mirrorfromgentleman.model.bean.ProductInforBean;
 import com.zhao.mirrorfromgentleman.model.net.OkHttpClientManager;
 import com.zhao.mirrorfromgentleman.ui.activity.DetailActivity;
 import com.zhao.mirrorfromgentleman.ui.adapter.lvadapter.RepeatLvAdapter;
@@ -34,7 +34,10 @@ import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
 import com.zhao.mirrorfromgentleman.view.SysApplication;
 
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +70,8 @@ public class AllFragment extends BaseFragment implements View.OnClickListener, A
     private AllRvadapter allRvadapter;
     private PopupWindow popupWindow;
     private List<MyData> mydata;
+
+    private ProductInforBean productInforBean;
 
     private TextView allTv, flatLightTv, sunglassesTv, shareTv, shoppingCartTv, returnTv, exitTv;
 
@@ -101,6 +106,9 @@ public class AllFragment extends BaseFragment implements View.OnClickListener, A
     @Override
     public void initData() {
 
+
+        productInforBean = readFile("productList.txt");
+
         //点击出ppp的点击事件
         pop_up.setOnClickListener(this);
 
@@ -120,22 +128,27 @@ public class AllFragment extends BaseFragment implements View.OnClickListener, A
 
 
         allRvadapter = new AllRvadapter(context);
-        OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/products/goods_list", new OkHttpClientManager.ResultCallback<Bean>() {
-            @Override
-            public void onError(Request request, Exception e) {
+//        OkHttpClientManager.postAsyn("http://api101.test.mirroreye.cn/index.php/products/goods_list", new OkHttpClientManager.ResultCallback<Bean>() {
+//            @Override
+//            public void onError(Request request, Exception e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(Bean response) {
+//                bean = response;
+//                recyclerView.setLayoutManager(new GridLayoutManager(context, response.getData().getList().size()));
+//                allRvadapter.setBean(bean);
+//                recyclerView.setAdapter(allRvadapter);
+//            }
+//
+//
+//        }, params);
 
-            }
-
-            @Override
-            public void onResponse(Bean response) {
-                bean = response;
-                recyclerView.setLayoutManager(new GridLayoutManager(context, response.getData().getList().size()));
-                allRvadapter.setBean(bean);
-                recyclerView.setAdapter(allRvadapter);
-            }
-
-
-        }, params);
+//
+        recyclerView.setLayoutManager(new GridLayoutManager(context, productInforBean.getData().getList().size()));
+        allRvadapter.setBean(productInforBean);
+        recyclerView.setAdapter(allRvadapter);
 
         allRvadapter.setMyRvOnclickListener(this);
     }
@@ -309,6 +322,37 @@ public class AllFragment extends BaseFragment implements View.OnClickListener, A
             return false;
         }
         return false;
+    }
+
+    private ProductInforBean readFile(String pathName) {
+        // 定义结果
+        String result = new String();
+        try {
+            // 很据文件名获取Assets文件夹下的文件
+            InputStream is = getResources().getAssets().open(pathName);// 打开一个文件名
+            // 读流
+            InputStreamReader ir = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(ir);
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                result += line;
+            }
+            // 关流（先关流，在使用数据）
+            br.close();
+            ir.close();
+            is.close();
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        Log.d("AllFragment6666666", result);
+        Gson gson = new Gson();
+        ProductInforBean productInforBean = gson.fromJson(result, ProductInforBean.class);
+        Log.d("AllFragment", productInforBean.getData().toString());
+        // 返回结果
+        return productInforBean;
     }
 
 

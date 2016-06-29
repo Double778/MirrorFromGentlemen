@@ -22,6 +22,7 @@ import com.zhao.mirrorfromgentleman.ui.adapter.showadpter.WearShowLvAdapter;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindContent;
 import com.zhao.mirrorfromgentleman.ui.utils.annotation.BindView;
 import com.zhao.mirrorfromgentleman.view.CommonVideoView;
+import com.zhao.mirrorfromgentleman.view.MyListView;
 
 /**
  * Created by liangduo on 16/6/16.
@@ -35,7 +36,7 @@ public class WearShowActivity extends BaseActivity implements View.OnClickListen
     @BindView(R.id.activity_wearshow)
     private RelativeLayout wearShowAty;
     @BindView(R.id.wear_show_lv)
-    public static ListView wearShowLv;
+    public static MyListView wearShowLv;
     private int[] images = {R.mipmap.a, R.mipmap.b, R.mipmap.c, R.mipmap.d, R.mipmap.e};
     private WearShowLvAdapter wearShowLvAdapter;
 
@@ -150,8 +151,10 @@ public class WearShowActivity extends BaseActivity implements View.OnClickListen
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
             lvHeadVv.setFullScreen();
+            wearShowLv.setTouch(false);
         }else {
             lvHeadVv.setNormalScreen();
+            wearShowLv.setTouch(true);
         }
     }
 
@@ -167,7 +170,7 @@ public class WearShowActivity extends BaseActivity implements View.OnClickListen
         return head;
     }
 
-    public static ListView getListView(){
+    public static MyListView getListView(){
         return wearShowLv;
     }
 

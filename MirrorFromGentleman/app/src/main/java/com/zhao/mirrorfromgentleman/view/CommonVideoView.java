@@ -125,12 +125,13 @@ public class CommonVideoView extends FrameLayout implements MediaPlayer.OnPrepar
         int height = wm.getDefaultDisplay().getHeight()-40;
         WearShowActivity.getHead().setLayoutParams(new ListView.LayoutParams(width,height));
         WearShowActivity.getWearShowBtnLayout().setVisibility(GONE);
-        WearShowActivity.getListView().setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+//        WearShowActivity.getListView().setOnTouchListener(new OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                return true;
+//            }
+//        });
+        WearShowActivity.getListView().setTouch(true);
         videoView.requestLayout();
     }
 
@@ -142,12 +143,13 @@ public class CommonVideoView extends FrameLayout implements MediaPlayer.OnPrepar
         touchStatusImg.setImageResource(R.mipmap.iconfont_enter_32);
         WearShowActivity.getHead().setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         WearShowActivity.getWearShowBtnLayout().setVisibility(VISIBLE);
-        WearShowActivity.getListView().setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-            }
-        });
+//        WearShowActivity.getListView().setOnTouchListener(new OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                return false;
+//            }
+//        });
+        WearShowActivity.getListView().setTouch(false);
         videoView.requestLayout();
     }
 
